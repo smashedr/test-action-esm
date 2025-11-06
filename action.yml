@@ -1,0 +1,22 @@
+name: "Test Action ESM"
+#description: "Test Action ESM
+description: "Action to run actions-up and report outdated actions in Pull Requests, Workflow Outputs, or Job Status."
+author: "Shane"
+branding:
+  icon: "type"
+  color: "green"
+
+inputs:
+  multi:
+    description: "Multi Shit"
+  token:
+    description: "Token"
+    default: ${{ github.token }}
+
+outputs:
+  results:
+    description: "Results"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
