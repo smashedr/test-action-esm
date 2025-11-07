@@ -27274,7 +27274,7 @@ async function main() {
     console.log(inputs);
     coreExports.endGroup(); // Inputs
 
-    // Setup
+    // Path
     const __filename = fileURLToPath(import.meta.url);
     console.log(`__filename: ${__filename}`);
     const __dirname = path.dirname(__filename);
@@ -27282,9 +27282,11 @@ async function main() {
     const src = path.resolve(__dirname, '../src');
     console.log(`src: ${src}`);
     await execExports.exec('ls', ['-lah', src], { ignoreReturnCode: true });
+    console.log('----------------------');
 
     // Action
     coreExports.startGroup('Action');
+    await wait(1000 * 3);
     const results = inputs.multi;
     console.log('results:', results);
     coreExports.endGroup();
@@ -27295,8 +27297,15 @@ async function main() {
     coreExports.info(`✅ \u001b[32;1mFinished Success`);
 }
 
+async function wait(timeout = 1000 * 3) {
+    coreExports.info(`setTimeout: ${timeout}`);
+    await new Promise((resolve) => setTimeout(resolve, timeout));
+    coreExports.info('setTimeout: done');
+}
+
 // main()
 // await main()
+
 // main().catch((e) => {
 //     core.debug(e)
 //     core.info(e.message)
