@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
+// const github = require('@actions/github')
 
 async function main() {
     const version = process.env.GITHUB_ACTION_REF
@@ -33,10 +34,11 @@ async function main() {
     console.log(`__filename: ${__filename}`)
     const __dirname = path.dirname(__filename)
     console.log(`__dirname: ${__dirname}`)
-    const src = path.resolve(__dirname, '../src')
-    console.log(`src: ${src}`)
-    await exec.exec('ls', ['-lah', src], { ignoreReturnCode: true })
-    console.log('----------------------')
+    const srcPath = path.resolve(__dirname, '../src')
+    console.log(`srcPath: ${srcPath}`)
+    core.startGroup('ls srcPath')
+    await exec.exec('ls', ['-lah', srcPath], { ignoreReturnCode: true })
+    core.endGroup() // ls srcPath
 
     // Action
     core.startGroup('Action')

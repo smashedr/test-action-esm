@@ -27250,6 +27250,8 @@ var coreExports = requireCore();
 
 var execExports = requireExec();
 
+// const github = require('@actions/github')
+
 async function main() {
     const version = process.env.GITHUB_ACTION_REF
         ? `${process.env.GITHUB_ACTION_REF}`
@@ -27279,10 +27281,11 @@ async function main() {
     console.log(`__filename: ${__filename}`);
     const __dirname = path.dirname(__filename);
     console.log(`__dirname: ${__dirname}`);
-    const src = path.resolve(__dirname, '../src');
-    console.log(`src: ${src}`);
-    await execExports.exec('ls', ['-lah', src], { ignoreReturnCode: true });
-    console.log('----------------------');
+    const srcPath = path.resolve(__dirname, '../src');
+    console.log(`srcPath: ${srcPath}`);
+    coreExports.startGroup('ls srcPath');
+    await execExports.exec('ls', ['-lah', srcPath], { ignoreReturnCode: true });
+    coreExports.endGroup(); // ls srcPath
 
     // Action
     coreExports.startGroup('Action');
