@@ -1,15 +1,15 @@
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
-// const github = require('@actions/github')
+
+import path from 'node:path'
+
+import { fileURLToPath } from 'node:url'
 
 async function main() {
     const version = process.env.GITHUB_ACTION_REF
-        ? `${process.env.GITHUB_ACTION_REF}`
-        : 'Source'
-    core.info(`🏳️ Starting Test Action 1 - \u001b[35;1m${version}`)
+        ? `\u001b[35;1m${process.env.GITHUB_ACTION_REF}`
+        : '\u001b[33;1mSource'
+    core.info(`🏳️ Starting Test Action - ${version}`)
 
     // // Debug
     // core.startGroup('Debug: github.context')
@@ -45,7 +45,7 @@ async function main() {
     await wait(1000 * 3)
     const results = inputs.multi
     console.log('results:', results)
-    core.endGroup()
+    core.endGroup() // Action
 
     // Outputs
     core.setOutput('results', results)

@@ -1,5 +1,3 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import require$$0 from 'os';
 import require$$0$1 from 'crypto';
 import require$$1 from 'fs';
@@ -29,6 +27,8 @@ import require$$6 from 'string_decoder';
 import require$$0$9 from 'diagnostics_channel';
 import require$$2$2 from 'child_process';
 import require$$6$1 from 'timers';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -27250,13 +27250,11 @@ var coreExports = requireCore();
 
 var execExports = requireExec();
 
-// const github = require('@actions/github')
-
 async function main() {
     const version = process.env.GITHUB_ACTION_REF
-        ? `${process.env.GITHUB_ACTION_REF}`
-        : 'Source';
-    coreExports.info(`🏳️ Starting Test Action 1 - \u001b[35;1m${version}`);
+        ? `\u001b[35;1m${process.env.GITHUB_ACTION_REF}`
+        : '\u001b[33;1mSource';
+    coreExports.info(`🏳️ Starting Test Action - ${version}`);
 
     // // Debug
     // core.startGroup('Debug: github.context')
@@ -27292,7 +27290,7 @@ async function main() {
     await wait(1000 * 3);
     const results = inputs.multi;
     console.log('results:', results);
-    coreExports.endGroup();
+    coreExports.endGroup(); // Action
 
     // Outputs
     coreExports.setOutput('results', results);
