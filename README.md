@@ -11,9 +11,10 @@
 
 For action templates, see:
 
-- https://github.com/smashedr/js-test-action
-- https://github.com/smashedr/ts-test-action
-- https://github.com/smashedr/py-test-action
+- [js-test-action](https://github.com/smashedr/js-test-action?tab=readme-ov-file#readme) - JavaScript
+- [ts-test-action](https://github.com/smashedr/ts-test-action?tab=readme-ov-file#readme) - TypeScript
+- [py-test-action](https://github.com/smashedr/py-test-action?tab=readme-ov-file#readme) - Python (Dockerfile)
+- [docker-test-action](https://github.com/smashedr/docker-test-action?tab=readme-ov-file#readme) - Docker (Image)
 
 # Development
 
