@@ -6,15 +6,17 @@
 
 # Test Action ESM
 
-> [!CAUTION]
+> [!WARNING]  
 > THIS IS FOR TESTING ONLY!
 
 For action templates, see:
 
-- [js-test-action](https://github.com/smashedr/js-test-action?tab=readme-ov-file#readme) - JavaScript
-- [ts-test-action](https://github.com/smashedr/ts-test-action?tab=readme-ov-file#readme) - TypeScript
-- [py-test-action](https://github.com/smashedr/py-test-action?tab=readme-ov-file#readme) - Python (Dockerfile)
-- [docker-test-action](https://github.com/smashedr/docker-test-action?tab=readme-ov-file#readme) - Docker (Image)
+- JavaScript CJS: https://github.com/smashedr/javascript-action
+- JavaScript ESM: https://github.com/smashedr/test-action-esm
+- TypeScript ESM: https://github.com/smashedr/typescript-action
+- Dockerfile Python: https://github.com/smashedr/py-test-action
+- Dockerfile Python UV: https://github.com/smashedr/test-action-uv
+- Docker Image Python: https://github.com/smashedr/docker-test-action
 
 # Development
 
